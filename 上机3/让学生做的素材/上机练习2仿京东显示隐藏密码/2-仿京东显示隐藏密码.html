@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .box input {
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="images/close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+    </div>
+    <script>
+        //请根据题目要求完成JS代码
+        let eye = document.getElementById("eye");
+        let pwd = document.getElementById("pwd");
+        let flag = true;
+        eye.onclick = function() {
+            if (flag) {
+                pwd.type = "text";
+                eye.src = "images/open.png";
+                flag = false;
+            } else {
+                pwd.type = "password";
+                eye.src = "images/close.png";
+                flag = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

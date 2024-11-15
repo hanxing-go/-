@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>4</title> 
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: white;
+    float: left; /* 左浮动 */
+}
+ 
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+/*鼠标改变背景色*/
+li a:hover
+{
+    color:white;
+    background-color: brown;
+}
+
+/* 右侧文本 */
+#content {
+    margin-left: 8px; /* 左边距为导航栏宽度+10px */
+}
+
+/*图片的绝对位置，没用*/
+img i1
+{
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+
+</style>
+</head>
+
+<body>
+    <table>
+      <tr>
+        <td><img src="guohui.png" width="100"></td>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td>
+          <nav> 
+            <ul>  
+              <li><a href="txt/1.txt" target="文本框">第一章 总则</a></li>
+              <li><a href="txt/2.txt" target="文本框">第二章 招标</a></li>
+              <li><a href="txt/3.txt" target="文本框">第三章 投标</a></li>
+              <li><a href="txt/4.txt" target="文本框">第四章 开标、评标和中标</a></li>
+              <li><a href="txt/5.txt" target="文本框">第五章 投诉与处理</a></li>
+              <li><a href="txt/6.txt" target="文本框">第六章 法律责任</a></li>
+              <li><a href="txt/7.txt" target="文本框">第七章 负责</a></li>
+            </ul>
+          </nav>
+        </td>
+        <td rowspan="2">
+          <div id="content">
+            <iframe src="txt/1.txt" name="文本框" width="600" height="600"></iframe>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+   
+
+</body>
+</html>

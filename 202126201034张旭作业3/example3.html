@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example01</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let x = prompt("请输入一个整数：");
+    function getres(x){
+        let res = x;
+        while(x > 1){
+            x--;
+            res *= x;
+        }
+        return res;
+    }
+    let y = getres(x);
+    alert(`${x}! = ${y}`);
+</script>

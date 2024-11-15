@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+
+<script>
+
+    function Diamond() {
+        var i; var j;
+        var n;
+        n = prompt("输入行数");
+        for (i = 1; i <= n / 2; i++) {
+            for (j = 1; j <= n / 2 - i + 2; j++) {
+                document.write("&nbsp");
+            }
+            for (j = 1; j <= 2 * i; j++) {
+                if (j % 2 == 1) {
+                    document.write("*");
+                }
+                else {
+                    document.write("&nbsp");
+                }
+            }
+            document.write("<br/>");
+        }
+
+        for (i = n / 2; i <= n; i++) {
+            for (j = 1; j <= i - n / 2 + 1; j++) {
+                document.write("&nbsp");
+            }
+            for (j = 1; j <= 2 * (n - i) + 1; j++) {
+                if (j % 2 == 1) {
+                    document.write("*");
+                }
+                else {
+                    document.write("&nbsp");
+                }
+            }
+            document.write("<br/>");
+        }
+
+    }
+
+    Diamond();
+</script>
+
+
+</html>

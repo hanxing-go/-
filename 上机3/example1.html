@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <img src="" alt="">
+    <br>
+    <div> </div>
+    </body>
+
+    <script>
+        const now = new Date();
+        let div=document.querySelector("div");
+        let img=document.querySelector("img");
+        let x=now.getHours();
+        if (now.getHours() <= 12) 
+        { 
+            div.innerHTML = "亲，上午好，好好写代码";
+            img.src="让学生做的素材\\上机练习1分时问候并显示不同图片\\images\\s.gif" 
+        }
+        else if (now.getHours() <= 18) 
+        { 
+            div.innerHTML = "亲，下午好，好好写代码";
+            img.src="让学生做的素材\上机练习1分时问候并显示不同图片\\images\\x.gif"
+        }
+        else
+        { 
+            div.innerHTML = "亲，晚上好，好好写代码";
+            img.src="让学生做的素材\上机练习1分时问候并显示不同图片\\images\\w.gif"
+        }
+    </script>
+
+</html>

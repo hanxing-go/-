@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>输出显示三角形</title>
+</head>
+
+<body>
+</body>
+
+<script>
+
+	function tangle() {
+		let n = prompt("请输入打印行数");
+		let i;
+		let j;
+		for (i = 1; i <= n; i++) {
+			for (j = 1; j <= n - i; j++) {
+				document.write("&nbsp;");
+			}
+			for (j = 1; j <= 2 * i; j++) {
+				if (j % 2 == 1) {
+					document.write("*");
+				}
+				else {
+					document.write("&nbsp;");
+				}
+
+			}
+			document.write("<br/>");
+		}
+
+		return;
+	}
+	tangle();
+</script>
+
+</html>

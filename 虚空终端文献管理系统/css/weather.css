@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'iconfont';
+    /* project id 1709506 */
+    src: url('//at.alicdn.com/t/font_1709506_2q7caonpabr.eot');
+    src: url('//at.alicdn.com/t/font_1709506_2q7caonpabr.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1709506_2q7caonpabr.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1709506_2q7caonpabr.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1709506_2q7caonpabr.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1709506_2q7caonpabr.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family: "iconfont"!important;
+    font-size: 16px;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 清浮动 */
+.clear::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("../background_img/1.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container {
+    width: 400px;
+    height: 200px;
+    /* background-color: red; */
+    /* background-color: #222831; */
+    /* border-radius: 25px; */
+    /* box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2); */
+    border-top-left-radius: 10px;
+    background-image: linear-gradient(#d483eab5, #d985f1b5);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); */
+    color: #fbfafa;
+}
+
+.weather-side {
+    position: relative;
+    width: 88px;
+    height: 100%;
+    /* background-color: red; */
+    /* background-image: linear-gradient(#d985f1b5, #8986f3de); */
+    /* border-radius: 25px 0 0 25px; */
+
+    /* box-shadow: 0 0 35px -10px rgba(0, 0, 0, 0.2); */
+    float: left;
+}
+
+
+.date-container {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+
+.date-container .date-day {
+    display: block;
+    margin-top: 4px;
+}
+
+#location {
+    display: block;
+    margin-top: 4px;
+}
+
+.weather-conteiner {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+}
+#weather-l{
+    font-size: 16px;
+}
+.weather-temp {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.waeather-desc {
+    font-size: 16px;
+}
+
+
+/* 右边部分 */
+.info-side {
+    float: left;
+    /* background-color: red; */
+    padding-top: 0px;
+    margin-right: 0px;
+    width: 312px;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.today-info {
+    /* background-color: royalblue; */
+    padding: 0px 0px 0 0px;
+    margin: 0 0px 0px 0px;
+    /* box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.4); */
+    border-radius: 10px;
+}
+
+.today-info div {
+    margin-bottom: 10px;
+}
+
+.today-info .title {
+    float: left;
+}
+
+.today-info .value {
+    float: right;
+}
+
+
+.week-list {
+    margin: 10px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.4);
+}
+
+.week-list li {
+    float: left;
+    /* background-color: red; */
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    transition: 200ms;
+    z-index: 100;
+}
+
+.week-list li span {
+    display: block;
+}
+
+.week-list .iconfont{
+    font-size: 16px;
+}
+.week-list li:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: #222831;
+}
+
+.active {
+    /* transform: scale(1.1); */
+    background-color: #ffffff;
+    color: #222831;
+}
+
+.week-list .day-name {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.week-list .day-temp {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.location-container {
+    padding: 0px 30px;
+    position: relative;
+    /* background-color: red; */
+    /* width: 320px;
+    height: 126px; */
+    /* z-index: -10; */
+}
+
+.location-container input {
+    outline: none;
+    width: 250px;
+    height: 33px;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    /* font-weight: bold; */
+    position: absolute;
+    bottom: -140px;
+    /* top: 100px; */
+    left: calc(50% - 130px);
+    box-shadow: 0 0 35px -10px rgba(0, 0, 0, 0.3);
+    border: none;
+    color: #222831;
+    border-radius: 6px;
+}
+
+.location-container button {
+    outline: none;
+    width: 250px;
+    /* height: 35px; */
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+    color: #ffffff;
+    background-image: linear-gradient(135deg, #e072f1a8 10%, #7070f1ad 100%);
+    border-radius: 25px;
+    /* font-size: 18px; */
+    font-weight: bold;
+    box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 200ms;
+    position: absolute;
+    bottom: -189px;
+    left: calc(50% - 130px);
+}
+
+.location-container button:hover {
+    transform: scale(1.05);
+}

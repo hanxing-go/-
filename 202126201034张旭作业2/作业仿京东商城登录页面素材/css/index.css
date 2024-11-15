@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 80px;
+    align-items: center;
+    display: flex;
+    font-size: x-large;
+    margin-left: 25px;
+    color: red;
+}
+header>*{
+    display: inline;
+    margin-left: 25px;
+    float: left;
+}
+section{
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    height: 475px;
+    background-color: rgb(233, 56, 84);
+    background-image: url("../image/banner.png");
+    background-repeat: no-repeat;
+}
+.sign_in{
+    float: right;
+    width: 400px;
+    height: 275px;
+    margin-top: 50px;
+    margin-right: 10%;
+    background-color: white;
+}
+.sign_up{
+    float: right;
+}
+tr{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+td{
+    display: inline;
+}
+.icon{
+    float: left;
+    border: rgb(118, 118, 118) 1px solid;
+}
+input:nth-child(2){
+    height: 38px;
+    border: rgb(118, 118, 118) 1px solid;
+    width: 310px;
+}
+.forget{
+    display: inline;
+    float: right;
+    font-size: small;
+}
+button{
+    width: 353px;
+    height: 38px;
+    background-color: red;
+    color: white;
+}
+button:hover{
+    background-color: rgb(247, 66, 66);
+}
+a{
+    text-decoration: none;
+    color: red;
+}
+.list{
+    width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;    
+}
+
+li
+{
+    display: inline;
+    list-style: none;
+}

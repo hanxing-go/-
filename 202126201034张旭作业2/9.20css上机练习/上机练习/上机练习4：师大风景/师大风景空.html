@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        img {
+            transition: linear 1s;
+        }
+
+        .pkBox img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        img :hover{
+            transform: scale(2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pkBox">
+        <img src="images/nav2.jpg" alt="" />
+        <img src="images/nav3.jpg" alt="" />
+        <img src="images/nav4.jpg" alt="" />
+        <img src="images/nav5.jpg" alt="" />
+        <img src="images/nav6.jpg" alt="" />
+        <img src="images/nav1.jpg" alt="" />
+    </div>
+</body>
+
+</html>

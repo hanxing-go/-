@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    .black-block {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        line-height: 40px;
+        color: white;
+        text-align: center;
+        /* margin-right: 10px; */
+    }
+</style>
+
+<body>
+    <div class="black-block">24</div>
+    <div class="black-block">60</div>
+    <div class="black-block">60</div>
+    <div>
+    </div>
+    <button onclick="start()">开始</button>
+    <button onclick="stop()">停止</button>
+    <button onclick="reset()">重置</button>
+
+    <script>
+    </script>
+    <script>
+        var s = 60;//定义秒数
+        var f = 60;//定义分钟数
+        var h = 24;//定义小时数
+        let oDiv = document.querySelectorAll('div');
+        console.log(oDiv);
+        let oBton1 = document.querySelectorAll('button')[0];
+        let oBton2 = document.querySelectorAll('button')[1];
+        let oBton3 = document.querySelectorAll('button')[2];
+        // 点击开始倒计时
+        function start() {
+            // 每秒执行一次
+            timer = setInterval(function () {
+                s--;
+                if (s < 0) {
+                    s = 60;
+                    f--;
+                    if (f < 0) {
+                        f = 59;
+                        h--;
+                    }
+                }
+
+                // 更新显示的时间
+                oDiv[0].innerHTML = h;
+                oDiv[1].innerHTML = f;
+                oDiv[2].innerHTML = s;
+            }, 1000);
+        }
+
+        // 点击停止倒计时
+        function stop() {
+            // 清除计时器
+            clearInterval(timer);
+        }
+
+        // 点击重置倒计时
+        function reset() {
+            // 清除计时器
+            clearInterval(timer);
+            // 重置时间
+            s = 60;
+            f = 60;
+            h = 24;
+            // 更新显示的时间
+            oDiv[0].innerHTML = h;
+            oDiv[1].innerHTML = f;
+            oDiv[2].innerHTML = s;
+        }
+
+    </script>
+</body>
+
+</html>

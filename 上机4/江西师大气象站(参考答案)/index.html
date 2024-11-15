@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>江西师大气象站</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </script>
+</head>
+
+<body>
+  <div class="wrap" id="app">
+    <div class="search_form">
+      <div class="logo"><img src="img/logo.png" alt="logo" /></div>
+      <div class="form_group">
+        <input type="text" class="input_txt" placeholder="请输入查询的天气" />
+        <button class="input_sub" onclick="Search()">
+          搜 索
+        </button>
+      </div>
+      <div class="hotkey">
+        <a href="javascript: clickSearch('北京');">北京</a>
+        <a href="javascript: clickSearch('上海');">上海</a>
+        <a href="javascript: clickSearch('广州');">广州</a>
+        <a href="javascript: clickSearch('南昌');">南昌</a>
+        <a href="javascript: clickSearch('瑞金');">瑞金</a>
+      </div>
+    </div>
+
+
+
+    <ul class="weather_list">
+
+      <!-- <li>
+        <div class="info_type">
+          <span class="iconfont">多云</span>
+        </div>
+        <div class="info_temp">
+          <b>低温19度</b>
+          ~
+          <b>高温27度</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">2023年10月2日星期一</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_type">
+          <span class="iconfont">多云</span>
+        </div>
+        <div class="info_temp">
+          <b>低温19度</b>
+          ~
+          <b>高温27度</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">2023年10月2日星期一</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_type">
+          <span class="iconfont">多云</span>
+        </div>
+        <div class="info_temp">
+          <b>低温19度</b>
+          ~
+          <b>高温27度</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">2023年10月2日星期一</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_type">
+          <span class="iconfont">多云</span>
+        </div>
+        <div class="info_temp">
+          <b>低温19度</b>
+          ~
+          <b>高温27度</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">2023年10月2日星期一</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="info_type">
+          <span class="iconfont">多云</span>
+        </div>
+        <div class="info_temp">
+          <b>低温19度</b>
+          ~
+          <b>高温27度</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">2023年10月2日星期一</span>
+        </div>
+      </li> -->
+
+    </ul>
+  </div>
+
+</body>
+<script>
+  function updataWeather(forecarstList){
+    
+    var content=" ";
+    for(var i=0;i<forecarstList.length;i++)
+    content = content + `<li>
+        <div class="info_type">
+          <span class="iconfont">${forecarstList[i].wea}</span>
+        </div>
+        <div class="info_temp">
+          <b>低温${forecarstList[i].tem_night}度</b>
+          ~
+          <b>高温${forecarstList[i].tem_day}度</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">${forecarstList[i].date}</span>
+        </div>
+      </li>`
+    document.querySelector('.weather_list').innerHTML = content;
+
+  }
+  function queryWeather(city) {
+    var forecarstList = [];
+    axios.get(`https://v0.yiketianqi.com/free/week?unescape=1&appid=35694623&appsecret=p7sbGZBf&city=`+ city)
+      .then(function (response) {
+        // console.log(response);
+        forecarstList = response.data.data;
+        updataWeather(forecarstList);
+      }
+      )
+      .catch(function (error) {
+        console.log("error");
+        alert("请输入正确的城市名")
+      })
+      .finally( function () {
+      });
+  }
+  function clickSearch(city) {
+    // console.log(city)
+    queryWeather(city)
+  }
+
+  function Search(){
+    var city = document.querySelector('.input_txt').value;
+    console.log(city)
+    queryWeather(city)
+  }
+</script>
+
+</html>

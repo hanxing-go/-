@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script src="js/echarts.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px"></div>
+</body>
+<script>
+  var myChart = echarts.init(document.getElementById('main'));
+  option = {
+  tooltip: {
+    trigger: 'item'
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: 40,
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 1048, name: '优' },
+        { value: 735, name: '中等' },
+        { value: 580, name: '及格' },
+        { value: 484, name: '差' },
+        { value: 300, name: '极差' }
+      ]
+    }
+  ]
+};
+  myChart.setOption(option);
+</script>
+
+</html>

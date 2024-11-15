@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <div id="mask">
+    <div class="center">
+      <h2 class="title"><img src="./images/logo.png" alt=""> 江西师范大学校园风光{{num}}</h2>
+      <div class="img">
+        <img :src="src" alt="" />
+      <!-- 绑定属性 -->
+      <a href="javascript:void(0)"  class="left" @click="Left">
+        <img src="./images/prev.png" alt="" />
+      </a>
+      <a href="javascript:void(0)"  class="right" @click="Right">
+        <img src="./images/next.png" alt="" />
+      </a>
+    </div>
+  </div>
+
+  <script src="js/vue.js"></script>
+
+  <script>
+    var mask = new Vue({
+        el: '#mask',
+        data: {
+            num: 0,
+            src: "./images/jxnu05.jpg"
+        },
+        methods: {
+            Left() {
+                if(this.num==0)
+                {  
+                    this.num=10;
+                    this.src="./images/jxnu"+this.num+".jpg";
+                }
+                else
+                {   
+                    this.num--;
+                    this.src="./images/jxnu0"+this.num+".jpg";
+                }
+            },
+            Right() {
+                if(this.num==10)
+                {  
+                    this.num=0;
+                    this.src="./images/jxnu0"+this.num+".jpg";
+                }
+                else
+                {   
+                    this.num++;
+                    if(this.num==10)
+                        this.src="./images/jxnu"+this.num+".jpg";
+                    else
+                        this.src="./images/jxnu0"+this.num+".jpg";
+                }
+            }
+        }
+    })
+</script>
+</body>
+
+</html>

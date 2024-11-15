@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PDF文件上传和在线阅读</title>
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #file {
+            margin: 20px 0;
+            padding: 10px;
+        }
+
+        #pdf-viewer {
+            width: 80%;
+            height: 80%;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            overflow: auto;
+        }
+    </style>
+</head>
+<template>
+    <div class="content">
+        <input type="file" class="box-orc-input" @change="uploadPdf($event)" />
+
+        <span v-if="pdfName" @click="gotoPdf(pdfUrl)">{{pdfName}} <span @click.stop.prevent="delPdf()">❌</span></span>
+    </div>
+</template>
+
+<script>
+    function ie9() {
+        if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE6.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE7.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE8.0" || navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE9.0") {
+            return true
+        } else {
+            return false
+        }
+    }
+    export default {
+        data() {
+            return {
+                pdfName: '',
+                pdfUrl: '',
+            }
+        },
+
+        methods: {
+            // 上传pdf
+            uploadPdf(event) {
+                console.log(event)
+                if (event.target.files[0].type != 'application/pdf') {
+                    return this.$message.warning('请选择上传pdf文件')
+                }
+                if (ie9()) {
+                    this.$message.warning('iE9及以下版本IE浏览器暂不支持该功能，请升级IE浏览器或者用其他浏览器操作。')
+                    retrun
+                }
+                //iE9及以下版本IE浏览器暂不支持该功能，请升级IE浏览器或者用其他浏览器操作。
+                let inputDOM = event.target
+                let _this = this
+                var reader = new FileReader()
+                reader.readAsDataURL(event.target.files[0])//读取文件
+                reader.onload = function (e) {
+                    _this.getPdfUrl(event.target.files[0])//将得到的blob传出读取
+                    _this.pdfName = event.target.files[0].name
+                    inputDOM.value = null //将input置空 否则上传相同文件无反应 (不过置空后28行的打印 就看不到 event.target.files 文件数据（可以先注释此行看下数据--就是pdf文件）   )
+                }
+            },
+            //通过读取pdf得到url
+            getPdfUrl(file) {
+                let url = URL.createObjectURL(file) //将blob文件转化成url
+                this.pdfUrl = url  //赋值给url
+                console.log(url)  // blob:http://localhost:8080/f2049a9d-31a6-4bd9-8a94-23dee457218f
+                return url
+            },
+            // 打开pdf
+            gotoPdf(pdfUrl) {
+                // window.location.href = pdfUrl
+                window.open(pdfUrl)
+            },
+            // 删除pdf
+            delPdf() {
+                this.pdfName = ''
+                this.pdfUrl = ''
+            }
+        }
+    }
+</script>
+
+<style>
+</style>
+
+
+
+
+</html>

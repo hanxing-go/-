@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九九乘法表</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function print(){
+        document.write("<table border='1'");
+        for(let i=1;i<=9;i++){
+            document.write("<tr>");
+            for(var j=1;j<=i;j++){
+                document.write("<td>");
+                document.write(`${j} * ${i} = ${i * j}`);
+                document.write("</td>");
+            }
+            if(j<=9){
+                for(let k=j;k<=9;k++){
+                    document.write("<td>");
+                    document.write("&nbsp;");
+                    document.write("</td>");
+                }
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        return;
+    }
+    print();
+</script>
+</html>

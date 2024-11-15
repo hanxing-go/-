@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <script src="js/vue.js"></script>
+  <script src="js/echarts.js"></script>
+  <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="score">
+    <button @click="getscore">点击获取成绩</button>
+    {{ score }}
+
+
+    <form action="http://localhost:8080/demo1_war_exploded/My_Servlet">
+      <h1>Single Select</h1>
+      <h2>Question 1</h2>
+      <p>What is the capital of France?</p>
+        <input type="radio" name="q1" value="A"> a) Paris<br>
+        <input type="radio" name="q1" value="B"> b) London<br>
+        <input type="radio" name="q1" value="C"> c) Rome<br>
+        <input type="radio" name="q1" value="D"> d) Rome<br>
+
+        <h2>Question 2</h2>
+        <p>What is the largest planet in our solar system??</p>
+        <input type="radio" name="q2" value="A"> a) Jupiter<br>
+        <input type="radio" name="q2" value="B"> b) Saturn<br>
+        <input type="radio" name="q2" value="C"> c) Earth<br>
+        <input type="radio" name="q2" value="D"> d) Earth<br>
+
+        
+
+        <h2>Question 3</h2>
+        <p>What is the chemical symbol for gold?</p>
+
+        <input type="radio" name="q3" value="A"> a) Au<br>
+        <input type="radio" name="q3" value="B"> b) Ag<br>
+        <input type="radio" name="q3" value="C"> c) Fe<br>
+        <input type="radio" name="q3" value="D"> d) Fe<br>
+
+
+
+
+      <h1>Multiple Select</h1>
+      <h2>Question 1</h2>
+      <p>What is the capital of France?</p>
+
+        <input type="checkbox" name="q4" value="A"> a) Paris<br>
+        <input type="checkbox" name="q4" value="B"> b) London<br>
+        <input type="checkbox" name="q4" value="B"> c) Rome<br>
+        <input type="checkbox" name="q4" value="D"> d) Rome<br>
+
+
+      <h2>Question 2</h2>
+      <p>What is the largest planet in our solar system?</p>
+
+        <input type="checkbox" name="q5" value="A"> a) Jupiter<br>
+        <input type="checkbox" name="q5" value="B"> b) Saturn<br>
+        <input type="checkbox" name="q5" value="C"> c) Earth<br>
+        <input type="checkbox" name="q5" value="D"> d) Earth<br>
+
+        <input type="submit" value="Submit">
+    </form>
+    
+  </div>
+
+</body>
+
+<script>
+  var myscore = new Vue({
+    el: '#score',
+    data: {
+      score: 0
+    },
+    methods: {
+      getscore() {
+        // this.message = "你点我干啥";
+        axios.get('http://localhost:8080/demo1_war_exploded/My_Servlet')
+          .then(function (response) {
+            // console.log(response);
+            this.message = response.data;
+            console.log(this.message);
+          })
+      }
+    }
+  })
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>聊天</title>
+  <link rel="stylesheet" type="text/css" href="css/message.css">
+</head>
+
+<body>
+  <div class="chat_commento">
+    <!-- top -->
+    <div class="chat_top">
+      是兄弟就来砍我
+    </div>
+    <!-- line -->
+    <div class="line"></div>
+    <!-- middle -->
+    <div class="chat_middle" id="chat_middle_item">
+      <!-- 左边 -->
+      <div class="chat_left clearfix">
+        <div class="chat_left_item_1 ">天乐</div>
+        <div class="chat_left_item_2">
+          <div class="chat_time">18:57</div>
+          <div class="chat_left_content">
+            今天吃点啥？
+          </div>
+        </div>
+      </div>
+      <!--右边 -->
+      <div class="chat_right">
+        <div class="chat_right_item_1 ">热巴</div>
+        <div class="chat_right_item_2 ">
+          <div class="chat_right_time">18:59</div>
+          <div class="chat_right_content">
+            最近八合里周年庆店，咱们去薅羊毛呀
+          </div>
+        </div>
+      </div>
+      <!-- l_2 -->
+      <div class="chat_left clearfix">
+        <div class="chat_left_item_1 ">天乐</div>
+        <div class="chat_left_item_2">
+          <div class="chat_time">18:57</div>
+          <div class="chat_left_content">
+            行收拾一下走吧，早点去排个号
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- line -->
+    <div class="line"></div>
+    <!-- foot -->
+    <div class="chat_foot">
+      <!-- context -->
+      <textarea class="chat_context" id="chat_context_item" cols="30" rows="10" placeholder="请输入"></textarea>
+      <div class="chat_commit" id="button">发送</div>
+    </div>
+  </div>
+</body>
+<script>
+  //vue写法
+  var vm = new Vue({
+    el: "#chat_commento",
+    data() {
+      return {
+        chat_context_item: null
+      }
+    },
+    methods: {
+      commit: function () {
+        var data = new Date();
+        var hour = data.getHours();
+        var mm = data.getMinutes();
+        var time = hour + ':' + mm;
+        var ans = '<div class="chat_right_item_1 clearfix">热巴</div>' +
+          '<div class="chat_right_item_2">' +
+          '<div class="chat_right_time clearfix">' + time + '</div>' +
+          '<div class="chat_right_content clearfix">' + this.chat_context_item + '</div>'
+          + '</div>';
+        var oLi = document.createElement("div");
+        oLi.setAttribute("class", "chat_right");
+        oLi.innerHTML = ans;
+        this.$refs.chat_middle_item.append(oLi);
+        this.chat_context_item = null;
+        let ele = document.getElementById('chat_middle_item');
+        ele.scrollTop = ele.scrollHeight;
+      }
+    }
+  });
+
+
+</script>
+
+</html>

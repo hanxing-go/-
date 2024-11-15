@@ -1,0 +1,79 @@
+#header{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+#header .title1{
+	font: bold 50px Arial;
+	color:#7070f1;
+	margin:0 auto;
+}
+
+#header .title2{
+	font:normal 18px Arial;
+	margin:10px auto;
+	padding-left:20%;
+
+}
+#header .wrapper{
+	display:flex;
+	justify-content:space-between;
+	width:400px;
+	margin:0 auto;
+}
+#header .score-wrapper{
+	width:120px;
+	height: 47px;
+	background-image: linear-gradient(135deg, #e072f1a8 10%, #7070f1ad 100%);
+	/* padding:6px; */
+	border-radius:6px;
+}
+#header .score-wrapper #txt{
+	color:#f9f5f5;
+	font:bold 18px Arial;
+}
+#header .score-wrapper #score{
+	color:#fff;
+	font:bold 18px Arial;
+	vertical-align:middle;
+
+}
+#header .newgame-wrapper #newGame{
+	width:100px;
+	display:block;
+	background-image: linear-gradient(135deg, #e072f1a8 10%, #7070f1ad 100%);
+	text-decoration:none;
+	padding:13px;
+	border-radius:6px;
+	color:#fff;
+	font:bold 18px Arial;
+
+}
+/* #header .newgame-wrapper #newGame:hover{
+	background-color:#bdac9c;
+} */
+#grid-container{
+	width:490px;
+	height:500px;
+	padding:20px;
+	background: linear-gradient(#d985f1b5, #8986f3de);
+	margin:10px auto;
+	border-radius:10px;
+	position:relative;
+}
+#grid-container .grid-cell{
+	width:100px;
+	height:100px;
+	background-color:#a8baecc7;
+	border-radius:6px;
+	position:absolute;
+}
+
+#grid-container .number-cell{
+	border-radius:6px;
+	position:absolute;
+	background-color:red;
+	font:bold 50px Arial;
+	text-align:center;
+	line-height:100px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example01</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let y = prompt("请输入年份：");
+    let m = prompt("请输入月份：");
+    function getdays(year, month){
+        const arr1 = {
+            1:31, 3:31, 5:31, 7:31, 8:31, 10:31, 12:31,
+            4:30, 6:30, 9:30, 11:30,
+            2:(year % 4 == 0 && year % 100 != 0 )|| year % 400 == 0 ? 29 : 28
+        }
+        return arr1[month];
+    }
+    let d = getdays(y, m);
+    document.write(`${d}天`);
+</script>

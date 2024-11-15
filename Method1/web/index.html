@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>江西师大气象站</title>
+   <link rel="stylesheet" href="css/index.css" />
+  <script src="js/vue.js"></script>
+  <script src="js/axios.min.js"></script>
+  <script src="js/echarts.js"></script>
+</head>
+
+<style>
+  #weather_img {
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+  }
+</style>
+
+<body>
+  <div class="wrap" id="app">
+    <div class="search_form">
+      <div class="logo"><img src="img/logo.png" alt="logo" /></div>
+      <div class="form_group">
+        <input type="text" name="cityName" id="cityName" class="input_txt" placeholder="请输入查询的天气" v-model="city"
+          @keyup.enter="queryWeather" />
+        <button class="input_sub" id="searchName" @click="queryWeather">
+          搜 索
+        </button>
+      </div>
+      <div class="hotkey">
+        <!-- <a href="javascript:clickSearch('北京');">北京</a>
+        <a href="javascript:clickSearch('上海');">上海</a>
+        <a href="javascript:clickSearch('广州');">广州</a>
+        <a href="javascript:clickSearch('南昌');">南昌</a> -->
+        <a href="javascript:;" v-for="city in hotCitys" @click="clickSearch(city)">{{ city }}</a>
+      </div>
+    </div>
+
+    <ul class="weather_list" id="weather_list">
+      <li v-for="(item,index) in forecastList" :key="item.date">
+        <div class="info_type">
+          <span class="iconfont">{{ item.wea }}</span>
+        </div>
+        <div class="info_temp">
+          <b>最低温度{{ item.tem_night}}</b>
+          ~
+          <b>最高温度{{ item.tem_day}}</b>
+
+        </div>
+        <div class="info_date">
+          <span style="font-size:10px">{{ item.date }}</span>
+        </div>
+      </li>
+    </ul>
+    <div id="weather_img" v-show="flag"></div>
+  </div>
+  <div>
+    123
+  </div>
+
+</body>
+
+<script>
+
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      city: "南昌",
+      forecastList: [],
+      hotCitys: ["北京", "上海", "广州", "南昌", "天津"],
+      date: [],
+      high: [],
+      low: [],
+      flag: false,
+    },
+    methods: {
+      queryWeather() {
+        axios
+          .get(`https://v0.yiketianqi.com/free/week?unescape=1&appid=35694623&appsecret=p7sbGZBf&city=${this.city}`)
+          .then(res => {
+            console.log(res);
+            this.forecastList = res.data.data;;
+            this.date = res.data.data.map(function (forecastList) {
+              return forecastList.date;
+            });//表示日期
+            this.high = res.data.data.map(function (forecastList) {
+              return forecastList.tem_day;
+            });//表示最高温度
+            this.low = res.data.data.map(function (forecastList) {
+              return forecastList.tem_night;
+            });//表示最低温度
+            this.initEcharts();
+            this.flag = true;
+          })
+          .catch(err => {
+            console.log(err);
+          })
+          .finally(() => { });
+      },
+      clickSearch(city) {
+        this.city = city;
+        this.queryWeather();
+      },
+    },
+  });
+
+
+
+
+</script>
+
+</html>

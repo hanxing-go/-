@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 手机号输入框 -->
+    <input type="text" name="phone" id="phone" placeholder="请输入手机号">
+    <button id="btn" onclick="GetPhone()">获取验证码</button>
+</body>
+<script>
+    function GetPhone(){
+        var phone = document.getElementById("phone").value;
+        if(phone == ""){
+            alert("手机号不能为空")
+            return false;
+        }
+        var time = 10;
+        var timer = setInterval(function(){
+            time--;
+            if(time <= 0){
+                clearInterval(timer);
+                document.getElementById("btn").innerHTML = "获取验证码";
+                document.getElementById("btn").disabled = false;
+            }else{
+                document.getElementById("btn").innerHTML = time + "秒后重新获取";
+                document.getElementById("btn").disabled = true;
+            }
+        },1000);
+    }
+</script>
+</html>

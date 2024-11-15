@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输出显示三角形</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let x = prompt("请输入打印的行数：");
+    function print(x) {
+        for (let i = 1; i <= x; i++) {
+            let line = "";
+            for (let j = 1; j <= x - i; j++) {
+                line += "&nbsp;";
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                line += "*";
+            }
+            document.write(line + "<br>");
+        }
+    }
+    print(x);
+</script>
+
+</html>

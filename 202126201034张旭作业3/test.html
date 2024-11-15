@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    let arr=[68,53,12,98,65];
+    let arr2=arr.map(
+        function(x){
+            if(x>=80){
+                return "A";
+            }
+            else if(x>=60&&x<80){
+                return "B";
+            }
+            else if(x<60&&x>=50){
+                return "C";
+            }
+            else if(x>40&&x<=50){
+                return "D";
+            }
+            else if(x<40)
+            {
+                return "E";
+            }
+        }
+    )
+    document.write(arr2);
+</script>
+</html>

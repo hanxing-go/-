@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/s.gif" alt="">
+    <div>上午好</div>
+
+</body>
+<script>
+    //请根据题目要求完成JS代码
+
+
+
+
+    let myDate = new Date();
+    let div = document.querySelector("div");
+    let img = document.querySelector("img");
+
+    
+
+
+
+    if (myDate.getHours() >= 0 && myDate.getHours() < 6) {
+        div.innerText("早上好");
+        img.src = "images/z.gif";
+
+    }
+
+
+    if (myDate.getHours() >= 6 && myDate.getHours() < 12) {
+        div.innerText="上午好";
+        img.src = "images/z.gif";
+        document.write(12);
+    }
+
+    if (myDate.getHours() >= 12 && myDate.getHours() < 18) {
+        div.innerText("早上好");
+        img.src = "images/z.gif";
+    }
+
+    if (myDate.getHours() >= 0 && myDate.getHours() < 6) {
+        div.innerText("早上好");
+        img.src = "images/z.gif";
+
+
+
+    }
+
+
+    div.innerText="中午好";
+    img.src = "images/z.gif";
+
+
+</script>
+
+</html>

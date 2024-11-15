@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echarts地图</title>
+    <style>
+        #main {
+            width: 800px;
+            height: 600px;
+            /* background-color: skyblue; */
+        }
+    </style>
+    <script src="echarts.js"></script>
+    <script src="china.js"></script>
+    <script src="data.js"></script>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+
+        let caseList = component.caseList;
+        let data = caseList.map(item => {
+            return {
+                name: item.area,
+                value: item.confirmed
+            }
+        });
+
+        let option = {
+            title: {
+                text: '实时疫情地图'
+            },
+            tooltip: {
+                show: true,
+                formatter: '{b}<br>确诊：{c}人'
+            },
+            visualMap: {
+                show: true,
+                type: 'piecewise',
+                pieces: [
+                    { gt: 1000, label: '>1000人' },
+                    { gt: 100, lte: 999 },
+                    { gt: 10, lte: 99 },
+                    { lt: 10, label: '<10人' }
+                ],
+                color: ['red', 'pink', 'skyblue', 'green'],
+            },
+            series: [
+                {
+                    type: 'map',
+                    name: '实时疫情地图',
+                    map: 'china',
+                    label: {
+                        show: true,
+                    },
+                    data: data
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
